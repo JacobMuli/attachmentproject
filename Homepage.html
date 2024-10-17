@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G & J Hotels</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <img src="hotel1.jpg" alt="hotelpic">
+        <h1>Welcome to Grace & Jacob Hotel</h1>
+    </header>
+    
+    <main>
+        <p>Book your dream hotel with ease!</p>
+        <p>Explore our wide range of hotels and make your reservation today.</p>
+        <!-- Correct "Book Now" button -->
+        <button id="openModalBtn">Book Now</button>
+    </main>
+    
+    <footer>
+        <p>&copy; 2022 Hotel Reservation Website. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal HTML -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Hotel Booking Form</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="checkin">Check-in Date:</label>
+                <input type="date" id="checkin" name="checkin" required><br><br>
+                
+                <label for="checkout">Check-out Date:</label>
+                <input type="date" id="checkout" name="checkout" required><br><br>
+                
+                <label for="room">Room Type:</label>
+                <select id="room" name="room" required>
+                    <option value="single">Single Room</option>
+                    <option value="double">Double Room</option>
+                    <option value="suite">Suite</option>
+                </select><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Correct path to the JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>

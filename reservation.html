@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G & J Hotels - Room Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #1d3f87;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .room-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+            padding: 0 15px;
+        }
+
+        .card button {
+            background-color: #1d3f87;
+            color: white;
+            padding: 10px;
+            margin: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #ffcc00;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>G & J Hotels - Find Your Room</h1>
+    </nav>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for room types... (e.g., Single, Double, Suite)" onkeyup="filterRooms()">
+    </div>
+
+    <div class="room-cards" id="roomCards">
+        <!-- Single Room Card -->
+        <div class="card" data-room-type="single">
+            <img src="single_room.jpg" alt="Single Room">
+            <h2>Single Room</h2>
+            <p>Perfect for solo travelers looking for a cozy and private stay.</p>
+            <button>Book Now</button>
+        </div>
+
+        <!-- Double Room Card -->
+        <div class="card" data-room-type="double">
+            <img src="double_room.jpg" alt="Double Room">
+            <h2>Double Room</h2>
+            <p>Ideal for couples or friends who want to share a comfortable space.</p>
+            <button>Book Now</button>
+        </div>
+
+        <!-- Suite Room Card -->
+        <div class="card" data-room-type="suite">
+            <img src="suite.jpg" alt="Suite Room">
+            <h2>Suite Room</h2>
+            <p>Experience luxury in our spacious suite, designed for comfort and relaxation.</p>
+            <button>Book Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to filter room cards based on search input
+        function filterRooms() {
+            var input, filter, cards, cardContainer, h2, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toLowerCase();
+            cardContainer = document.getElementById("roomCards");
+            cards = cardContainer.getElementsByClassName('card');
+
+            for (i = 0; i < cards.length; i++) {
+                h2 = cards[i].getElementsByTagName("h2")[0];
+                txtValue = h2.textContent || h2.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
